@@ -1,0 +1,66 @@
+PLANNING
+
+FEATURES
+	users: can sign into the app with their email and password
+
+	users can create recipes with ingredients and instructions
+
+	recipes: can be marked as public or private (booleans)
+
+	users can view other people’s recipes
+
+	ingredients: from recipes can be added to user’s grocery lists
+
+	users can create their own occasions and assign recipes to occasions
+	
+BRAINSTORMING
+	DATAs
+	 User_id: Username, Email/Password
+	 user_post_id: username_id, body, recipe
+	 Recipe_id: ingredients_id , booleans
+	 ingredients_id:[Maybe] ingredients
+	 events_id [groups] event_name ,username_id, recipe
+	 cart_id: username_id, ingredients
+	 
+TABLE IDEAS
+
+Users 
+	user_dat
+	
+Auth 
+	user_dat 
+	email
+	password
+
+User_Post (post)
+	user_dat
+	body
+	recipe
+	
+Recipe 
+	Ingredients
+	booleans
+	
+Ingredients 
+	ingredients
+	
+Events_post (group Table)
+	event_name
+	event_body
+	username_id	
+	recipe
+
+Cart
+	username_id
+	ingredients
+
+
+RELATIONSHIPS
+* One to One: 
+Auth & User (Has to get user id once log in) 
+
+* One to many: 
+User_post and Events_post to recipe( Users Sharing information about recipe should pull recipe, with true or false on private)
+
+* Many to Many: 
+User & Recipe & ingredients to Cart ( Grabs the information from User's Recipe with access or no access to ingredients)

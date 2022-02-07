@@ -1,0 +1,50 @@
+MSQL Create Tables
+
+CREATE TABLE Users (
+	user_id SERIAL PRIMARY KEY,
+	username VARCHAR(25) NOT NULL,
+	created TIMESTAMP NOT NULL
+);
+
+CREATE TABLE Cart (
+	cart_id SERIAL PRIMARY KEY NOT NULL,
+	user_id integer NOT NULL,
+	ingredients VARCHAR(255) NOT NULL,
+	prices FLOAT NOT NULL
+);
+
+CREATE TABLE Event_Post (
+	event_post_id SERIAL PRIMARY KEY NOT NULL,
+	user_id integer NOT NULL,
+	event_name VARCHAR(255) NOT NULL,
+	recipe TEXT NOT NULL
+);
+
+CREATE TABLE Ingredients (
+	ingredients_id SERIAL PRIMARY KEY NOT NULL,
+	ingredients_name VARCHAR(255) NOT NULL,
+	prices FLOAT NOT NULL
+);
+
+CREATE TABLE Recipe (
+	recipe_id SERIAL PRIMARY KEY NOT NULL,
+	recipe_post TEXT NOT NULL,
+	is_Private BOOLEAN NOT NULL,
+	ingredients VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Recipe_Post (
+	recipe_post SERIAL PRIMARY KEY NOT NULL,
+	user_id integer NOT NULL,
+	body TEXT NOT NULL,
+	recipe TEXT NOT NULL,
+	is_Private BOOLEAN NOT NULL,
+	ingredients VARCHAR(255)
+);
+
+CREATE TABLE Auth (
+	auth_id SERIAL PRIMARY KEY NOT NULL,
+	user_id integer NOT NULL,
+	email varchar(55) NOT NULL,
+	password_hash varchar(50) NOT NULL
+);
